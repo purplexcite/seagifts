@@ -27,12 +27,13 @@ Class Model_Good extends ORM
         
         $_SESSION =& $session->as_array();
         
-        foreach($_SESSION['orders'] as $k => $v)
-            {
-                $cof = ($_SESSION['orders'][$k]['select'] == 'kg' ? $_SESSION['orders'][$k]['count']:$_SESSION['orders'][$k]['count']/1000);
+        if(!empty($_SESSION['orders']))
+            foreach($_SESSION['orders'] as $k => $v)
+                {
+                    $cof = ($_SESSION['orders'][$k]['select'] == 'kg' ? $_SESSION['orders'][$k]['count']:$_SESSION['orders'][$k]['count']/1000);
                 
-                $price += ($_SESSION['orders'][$k]['price']*$cof);
-            }
+                    $price += ($_SESSION['orders'][$k]['price']*$cof);
+                }
         
         return $price;
     }
