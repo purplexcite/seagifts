@@ -50,14 +50,31 @@ Class Controller_Page extends Controller_Abstract
         }
         else if($page != 'index')
         {
-            if(Kohana::find_file('views', $page) == FALSE)
-                $this->request->redirect('');
-            else
-                $this->template->content = $this->page->getpage($page);
-            
-            if($page == 'order')
+            if($page == 'addbasket')
             {
                 $id = $this->request->param('id');
+                
+                if(empty($id))
+                    $this->template->content->err = 'Не выбран товар';
+                else
+                {
+                    $get = $this->goods->getbyid($id);
+                    
+                    if(!empty($get['id']))
+                    {
+                        $session = Session::instance()->get('orders');
+                        $session[] = array('id' => $get['id'], 'name' => $get['name'], 'price' => $get['price'], 'count' => 1, 'select' => 'kg');
+                        
+                        Session::instance()->set('orders', $session);
+                        $this->template->content = 'Товар добавлен в '.html::anchor('basket', 'корзину');
+                    }
+                }
+            }
+            elseif($page == 'order')
+            {
+                $this->template->content = $this->page->getpage('order');
+                
+                /*$id = $this->request->param('id');
                 
                 if(empty($id) and empty($_POST['orderid']))
                     $this->template->content->err = 'Не выбран товар';
@@ -71,8 +88,9 @@ Class Controller_Page extends Controller_Abstract
                         
                     else
                         $this->template->content->err = 'Неверный номер товара';
-                }
-                elseif(!empty($_POST['orderid']))
+                }*/
+                
+                if(!empty($_POST['submit']))
                 {
                     if(Captcha::valid($_POST['captcha']))
                     {
@@ -85,6 +103,39 @@ Class Controller_Page extends Controller_Abstract
                     }
                     else
                         $this->template->content->err = 'Неверно введена капча';
+                }
+            }
+            elseif($page == 'editbasket')
+            {
+                if(!empty($_POST['del_id']))
+                {
+                    $this->goods->delbasket();
+                    $this->template->content = $this->page->getpage('basket');
+                    $this->template->content->err = 'Товар(ы) успешно удален(ы)';
+                    $this->template->content->all_price = $this->goods->all_price();
+                }
+                elseif(!empty($_POST['basket_id']) and isset($_POST['count']) and isset($_POST['select']))
+                {
+                    $this->template->content = $this->page->getpage('basket');
+                    $this->template->content->err = $this->goods->editbasket();
+                    $this->template->content->all_price = $this->goods->all_price();
+                }
+            }
+            elseif($page == 'clearbasket')
+            {
+                Session::instance()->delete('orders');
+                
+                $this->request->redirect('basket');
+            }
+            elseif(Kohana::find_file('views', $page) == FALSE)
+                $this->request->redirect('');
+            else
+            {
+                $this->template->content = $this->page->getpage($page);
+                
+                if($page == 'basket')
+                {
+                    $this->template->content->all_price = $this->goods->all_price();
                 }
             }
         }

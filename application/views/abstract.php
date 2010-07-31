@@ -15,6 +15,7 @@
         <div class="menu">
             <div class="options">
             <center>
+            <font size="1">
             <?php
             
                 echo html::anchor('', '<Новости>');
@@ -30,6 +31,7 @@
                 echo html::anchor('contacts', '<Контакты>');
             
             ?>
+            </font>
             </center>
             </div>
             <div class="text">
@@ -69,7 +71,7 @@
                             echo '<tr valign="top"><td><b>Название:</b></td><td>'.$data->name.'</td><td rowspan="4" width="60%"><center><b>Описание:</b></center><br>'.(!empty($data->description) ? nl2br($data->description):"Нет описания").'</td></tr>';
                             echo '<tr valign="top"><td><b>Цена (за КГ):</b></td><td>'.$data->price.'&nbsp;грн.</td></tr>';
                             echo '<tr valign="top"><td valign="top"><b>Фото:</b></td><td valign="top">'.$photo.'</td></tr>';
-                            echo '<tr valign="top"><td colspan="2">-->&nbsp;'.html::anchor('order/'.$data->id, 'Купить '.$data->name).'</td></tr>';
+                            echo '<tr valign="top"><td colspan="2">-->&nbsp;'.html::anchor('addbasket/'.$data->id, 'Купить '.$data->name).'</td></tr>';
                             
                             echo '</table><hr noshade color="#032c5b" width="50%"><p>';
                         }
