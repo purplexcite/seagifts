@@ -21,7 +21,7 @@ Class Model_Good extends ORM
 {
     function getgoods($limit, $offset, $like = '')
     {
-        return ORM::factory('good')->where('name', 'like', '%'.$like.'%')->limit($limit)->offset($offset)->find_all()->as_array();
+       return ORM::factory('good')->where('name', 'like', '%'.$like.'%')->or_where('description', 'like', '%'.$like.'%')->limit($limit)->offset($offset)->find_all()->as_array();
     }
     
     function getbyid($id)
