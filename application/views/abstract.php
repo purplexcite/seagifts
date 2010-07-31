@@ -62,10 +62,10 @@
                             
                             echo '<table border="0" cellspacing="0" cellpadding="4" width="100%">';
                             
-                            echo '<tr><td><b>Название:</b></td><td>'.$data->name.'</td><td rowspan="4" width="60%" valign="top"><center><b>Описание:</b></center><br>'.nl2br($data->description).'</td></tr>';
-                            echo '<tr><td><b>Цена (за КГ):</b></td><td>'.$data->price.'&nbsp;грн.</td></tr>';
-                            echo '<tr><td valign="top"><b>Фото:</b></td><td valign="top">'.$photo.'</td></tr>';
-                            echo '<tr><td colspan="2">-->&nbsp;'.html::anchor('order/'.$data->id, 'Купить '.$data->name).'</td></tr>';
+                            echo '<tr valign="top"><td><b>Название:</b></td><td>'.$data->name.'</td><td rowspan="4" width="60%"><center><b>Описание:</b></center><br>'.nl2br($data->description).'</td></tr>';
+                            echo '<tr valign="top"><td><b>Цена (за КГ):</b></td><td>'.$data->price.'&nbsp;грн.</td></tr>';
+                            echo '<tr valign="top"><td valign="top"><b>Фото:</b></td><td valign="top">'.$photo.'</td></tr>';
+                            echo '<tr valign="top"><td colspan="2">-->&nbsp;'.html::anchor('order/'.$data->id, 'Купить '.$data->name).'</td></tr>';
                             
                             echo '</table><p>';
                         }
