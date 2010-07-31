@@ -28,7 +28,7 @@
                     
                     foreach($list as $entry)
                     {
-                        echo '<tr align="center">';
+                        echo '<tr align="center" valign="top">';
                         
                         echo form::hidden('edit_id[]', $entry['id']);
                         echo '<td>'.form::checkbox('edit_delete[]', $entry['id']).'</td>';
