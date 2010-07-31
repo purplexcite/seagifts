@@ -21,6 +21,10 @@
                 echo '&nbsp;';
                 echo html::anchor('goods', '<Каталог>');
                 echo '&nbsp;';
+                echo html::anchor('basket', '<Корзина>');
+                echo '&nbsp;';
+                echo html::anchor('recepts', '<Рецепты>');
+                echo '&nbsp;';
                 echo html::anchor('about', '<О нас>');
                 echo '&nbsp;';
                 echo html::anchor('contacts', '<Контакты>');
