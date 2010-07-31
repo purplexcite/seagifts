@@ -23,12 +23,15 @@ Class Model_Good extends ORM
     {
         $price = 0;
         
-        $session = Session::instance()->get('orders');
+        $session = Session::instance();
         
-        if(!empty($session))
-            foreach($session as $k => $v)
+        $_SESSION =& $session->as_array();
+        
+        foreach($_SESSION['orders'] as $k => $v)
             {
-                $price += ORM::factory('good')->where('id', '=', $v['id'])->find()->price;
+                $cof = ($_SESSION['orders'][$k]['select'] == 'kg' ? $_SESSION['orders'][$k]['count']:$_SESSION['orders'][$k]['count']/1000);
+                
+                $price += ($_SESSION['orders'][$k]['price']*$cof);
             }
         
         return $price;
