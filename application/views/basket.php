@@ -14,9 +14,9 @@
             
             <?php
             
-                echo html::anchor('order', '--> Оплатить товар ('.$all_price.' грн.)');
+                echo html::anchor('order', 'Оплатить товар ('.$all_price.' грн.)');
                 echo '<br>';
-                echo html::anchor('clearbasket', '--> Очистить корзину');
+                echo html::anchor('clearbasket', 'Очистить корзину');
             
             ?>
             

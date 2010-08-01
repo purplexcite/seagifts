@@ -9,29 +9,27 @@
         <meta http-equiv="pragma" content="no-cache">
     </head>
     <body>
-        <div class="logo"></div>
+        <?php echo html::anchor('', '<div class="logo"></div>') ?>
         <p>
         
         <div class="menu">
             <div class="options">
             <center>
-            <font size="1">
             <?php
             
-                echo html::anchor('', '<Новости>');
-                echo '&nbsp;';
-                echo html::anchor('goods', '<Каталог>');
-                echo '&nbsp;';
-                echo html::anchor('basket', '<Корзина>');
-                echo '&nbsp;';
-                echo html::anchor('recepts', '<Рецепты>');
-                echo '&nbsp;';
-                echo html::anchor('about', '<О нас>');
-                echo '&nbsp;';
-                echo html::anchor('contacts', '<Контакты>');
+                echo html::anchor('', 'Новости');
+                echo '&nbsp;|&nbsp;';
+                echo html::anchor('goods', 'Каталог');
+                echo '&nbsp;|&nbsp;';
+                echo html::anchor('basket', 'Корзина');
+                echo '&nbsp;|&nbsp;';
+                echo html::anchor('recepts', 'Рецепты');
+                echo '&nbsp;|&nbsp;';
+                echo html::anchor('about', 'О нас>');
+                echo '&nbsp;|&nbsp;';
+                echo html::anchor('contacts', 'Контакты');
             
             ?>
-            </font>
             </center>
             </div>
             <div class="text">
@@ -52,12 +50,12 @@
                     echo '<center>';
                     echo form::open('goods', array('method' => 'get'));
                     echo '<b>Поиск товара:</b> '.form::input('search', (empty($_REQUEST['search']) ? '':$_REQUEST['search'])).'&nbsp;'.form::submit('submit', 'Найти').'<p>';
-                    echo '<hr noshade color="#032c5b" size="5">';
+                    echo '<hr noshade color="#032c5b" size="5" width="60%" align="center">';
                     echo form::close();
                     echo '</center>';
                     
                     if($pagination->total_items != 1)
-                        echo '<center>'.$pagination.'</center><hr noshade color="#032c5b" size="5">';
+                        echo '<center>'.$pagination.'</center><hr noshade color="#032c5b" size="5" width="60%" align="center">';
                     
                     foreach($content as $data)
                         {
@@ -66,18 +64,18 @@
                             else
                                 $photo = 'Нет фото';
                             
-                            echo '<table border="0" cellspacing="0" cellpadding="4" width="100%">';
+                            echo '<table border="0" width="60%" align="center">';
                             
-                            echo '<tr valign="top"><td><b>Название:</b></td><td>'.$data->name.'</td><td rowspan="4" width="50%"><center><b>Описание:</b></center><br>'.(!empty($data->description) ? nl2br($data->description):"Нет описания").'</td></tr>';
-                            echo '<tr valign="top"><td><b>Цена (за КГ):</b></td><td>'.$data->price.'&nbsp;грн.</td></tr>';
-                            echo '<tr valign="top"><td valign="top"><b>Фото:</b></td><td valign="top">'.$photo.'</td></tr>';
-                            echo '<tr valign="top"><td colspan="2">-->&nbsp;'.html::anchor('addbasket/'.$data->id, 'Купить', array('title' => 'Купить '.$data->name.' - '.$data->price.' грн. за килограмм')).'</td></tr>';
+                            echo '<tr valign="top"><td width="25%"><b>Название:</b></td><td width="25%">'.$data->name.'</td><td width="50%" rowspan="4" width="50%"><center><b>Описание:</b></center><br>'.(!empty($data->description) ? nl2br($data->description):"Нет описания").'</td></tr>';
+                            echo '<tr valign="top"><td width="25%"><b>Цена (за КГ):</b></td><td width="25%">'.$data->price.'&nbsp;грн.</td></tr>';
+                            echo '<tr valign="top"><td width="25%" valign="top"><b>Фото:</b></td><td width="25%" valign="top">'.$photo.'</td></tr>';
+                            echo '<tr valign="top"><td width="50%" colspan="2">'.html::anchor('addbasket/'.$data->id, 'Добавить в корзину', array('title' => 'Купить '.$data->name.' - '.$data->price.' грн. за килограмм')).'</td></tr>';
                             
-                            echo '</table><hr noshade color="#032c5b" width="50%"><p>';
+                            echo '</table><hr noshade color="#032c5b" size="1" width="60%" align="center"><p>';
                         }
                     
                     if($pagination->total_items != 1)
-                        echo '<hr noshade color="#032c5b" size="5"><center>'.$pagination.'</center>';
+                        echo '<hr noshade color="#032c5b" size="5" width="60%" align="center"><center>'.$pagination.'</center>';
                 }
             }
         
