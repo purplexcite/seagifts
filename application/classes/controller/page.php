@@ -68,6 +68,8 @@ Class Controller_Page extends Controller_Abstract
                         Session::instance()->set('orders', $session);
                         $this->template->content = 'Товар добавлен в '.html::anchor('basket', 'корзину').'<br>'.html::anchor(getenv('HTTP_REFERER'), 'Вернуться обратно в каталог');
                     }
+                    else
+                        $this->template->content = 'Неверный номер товара';
                 }
             }
             elseif($page == 'order')
