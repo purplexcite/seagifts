@@ -1,3 +1,4 @@
+<h2>Интернет-магазин Sea Gifts</h2>
 <b>Email:</b> <?php echo html::mailto('info@sg.od.ua') ?><br />
 <b>Телефон:</b> +380501234567
 <p>

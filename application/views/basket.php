@@ -1,11 +1,9 @@
 <?php
-    
     $session = Session::instance()->get('orders');
-    
+
     if(!empty($session))
     {
         echo form::open('editbasket')
-
 ?>
 <table width="100%">
     <tr><td><b>Действия:</b></td></tr>
@@ -55,12 +53,9 @@
 </table>
 
 <?php
-    
     }
     else
-        echo 'Корзина пуста';
-        
+        echo 'Вы еще не выбрали товар, корзина пуста';
     if(!empty($err))
         echo $err;
-
 ?>

@@ -1,10 +1,8 @@
-AddDefaultCharset utf-8
-
 # Turn on URL rewriting
 RewriteEngine On
 
 # Installation directory
-RewriteBase /
+#RewriteBase /kohana/
 
 # Protect hidden files from being viewed
 <Files .*>

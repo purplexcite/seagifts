@@ -2,5 +2,6 @@
  
 return array(
     'title' => 'SeaGifts - Интернет магазин морепродуктов в Одессе, купить морепродукты онлайн',
-    'css_default' => './media/css/default.css',
+    'css_reset' => 'media/css/reset.css',
+    'css_default' => 'media/css/default.css'
 );
