@@ -41,7 +41,7 @@
             echo '<td>'.$v['price'].'</td>';
             echo '<td>'.form::input('count[]', $v['count']).'</td>';
             echo '<td><select name="select[]"><option value="kg" '.($v['select'] == 'kg'? 'selected':'').'>килограмм</option><option value="g" '.($v['select'] == 'g'? 'selected':'').'>грамм</option></select></td>';
-            echo '<td>'.form::checkbox('del_id[]', $k).'</td>';
+            echo '<td align="center">'.form::checkbox('del_id[]', $k).'</td>';
             
             echo '</tr>';
         }

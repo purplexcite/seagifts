@@ -10,8 +10,8 @@
 		<meta http-equiv="pragma" content="no-cache">
 		<?php echo html::style(Kohana::config('site.css_reset')) ?>
 		<?php echo html::style(Kohana::config('site.css_default')) ?>
-		<script type="text/javascript" src="media/js/jquery.js"></script>
-		<script type="text/javascript" src="media/js/jquery01.js"></script>
+		<?php echo html::script('media/js/jquery.js') ?>
+		<?php echo html::script('media/js/jquery01.js') ?>
 	</head>
 <body>
 <div class="wrapper">
@@ -23,7 +23,7 @@
 		<ul id="sdt_menu" class="sdt_menu">
 			<li>
 				<a href="/">
-					<img src="media/images/20000000.jpg" alt=""/>
+					<?php echo html::image('media/images/20000000.jpg') ?>
 					<span class="sdt_active"></span>
 					<span class="sdt_wrap">
 						<span class="sdt_link">Новости</span>
@@ -33,7 +33,7 @@
 			</li>
 			<li>
 				<a href="/goods">
-					<img src="media/images/10000000.jpg" alt=""/>
+					<?php echo html::image('media/images/10000000.jpg') ?>
 					<span class="sdt_active"></span>
 					<span class="sdt_wrap">
 						<span class="sdt_link">Каталог</span>
@@ -43,17 +43,17 @@
 			</li>
 			<li>
 				<a href="/basket">
-					<img src="media/images/30000000.jpg" alt=""/>
+					<?php echo html::image('media/images/30000000.jpg') ?>
 					<span class="sdt_active"></span>
 					<span class="sdt_wrap">
 						<span class="sdt_link">Корзина</span>
-						<span class="sdt_descr">Where ideas get born</span>
+						<span class="sdt_descr">Сделать заказ</span>
 					</span>
 				</a>
 			</li>
 			<li>
 				<a href="/recepts">
-					<img src="media/images/40000000.jpg" alt=""/>
+					<?php echo html::image('media/images/40000000.jpg') ?>
 					<span class="sdt_active"></span>
 					<span class="sdt_wrap">
 						<span class="sdt_link">Рецепты</span>
@@ -63,7 +63,7 @@
 			</li>
 			<li>
 				<a href="/about">
-					<img src="media/images/50000000.jpg" alt=""/>
+					<?php echo html::image('media/images/50000000.jpg') ?>
 					<span class="sdt_active"></span>
 					<span class="sdt_wrap">
 						<span class="sdt_link">О нас</span>
@@ -73,7 +73,7 @@
 			</li>
 			<li>
 				<a href="/contacts">
-					<img src="media/images/60000000.jpg" alt=""/>
+					<?php echo html::image('media/images/60000000.jpg') ?>
 					<span class="sdt_active"></span>
 					<span class="sdt_wrap">
 						<span class="sdt_link">Контакты</span>
