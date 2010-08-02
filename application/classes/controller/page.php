@@ -66,7 +66,7 @@ Class Controller_Page extends Controller_Abstract
                         $session[] = array('id' => $get['id'], 'name' => $get['name'], 'price' => $get['price'], 'count' => 1, 'select' => 'kg');
                         
                         Session::instance()->set('orders', $session);
-                        $this->template->content = 'Товар добавлен в '.html::anchor('basket', 'корзину');
+                        $this->template->content = 'Товар добавлен в '.html::anchor('basket', 'корзину').'<br>'.html::anchor(getenv('HTTP_REFERER'), 'Вернуться обратно в каталог');
                     }
                 }
             }
