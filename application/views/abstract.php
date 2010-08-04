@@ -134,7 +134,6 @@ $('#sdt_menu > li').bind('mouseenter',function(){
 						 .stop(true)
 						 .animate({'top':'25px'},500);
 				});
-$('#rp_list a').tipsy({gravity: 's'});
 });
 </script>
 <div class="content">
