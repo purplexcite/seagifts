@@ -3,12 +3,13 @@ html, body {
 }
 
 body {
-	background:url("../images/bg.jpg") no-repeat fixed center top #FCFCFC;
+	/*background:url("../images/bg.jpg") no-repeat fixed center top #FCFCFC;*/
+        background-repeat: no-repeat;
+        background-attachment: fixed;
 	color:#000;
 	font-family:Tahoma, Arial, Helvetica, sans-serif, Verdana;
 	font-size:12px;
 }
-
 a {
 	color: #000;
 	text-decoration: none;
@@ -46,9 +47,10 @@ h1, h2, h3, h4, h5 {font-weight:bold;}
 	height:150;
 }
 
-.header .logo {
+.logo {
+        margin-top: 40px;
 	background:url('../images/logo.png') no-repeat center top;
-	height:150px;
+	height:153px;
 	width:960px;
 }
 

@@ -147,4 +147,10 @@ Class Controller_Page extends Controller_Abstract
             $this->template->opt = 'news';
         }
     }
+    
+    function action_background()
+    {
+        $img = new Model_Img;
+        echo $img->index();
+    }
 }

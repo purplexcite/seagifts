@@ -96,6 +96,12 @@ Route::set('captcha', 'captcha(/<action>)')
         'action' => 'default',
 	));
 
+Route::set('bg', 'background')
+	->defaults(array(
+		'controller' => 'page',
+        'action' => 'background',
+	));
+
 Route::set('default', '(<page>(/<id>))')
 	->defaults(array(
 		'controller' => 'page',

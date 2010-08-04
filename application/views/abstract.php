@@ -13,7 +13,9 @@
 		<?php echo html::script('media/js/jquery.js') ?>
 		<?php echo html::script('media/js/jquery01.js') ?>
 	</head>
-<body>
+<script>
+document.write('<body background="<?php echo url::base(TRUE, TRUE) ?>background?img=bg.jpg&h=' + screen.height + '&w=' + screen.width + '">');
+</script>
 <div class="wrapper">
 	<div class="header">
 		<?php echo html::anchor('', '<div class="logo"></div>') ?>
